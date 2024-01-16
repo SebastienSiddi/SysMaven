@@ -9,6 +9,7 @@
 
     <Grid Background="#7FCFD8DD">
 
+        <!-- Infos Section -->
         <Rectangle
             Fill="#FFE74C3C"
             Height="32"
@@ -19,7 +20,7 @@
         <Label
             x:Name="infoMsg"
             MouseDown="InfoMsg_MouseDown"
-            Content="Info : Mise à jour de sécurité disponible !"
+            Content="Info : Security Update is available !"
             Height="37"
             Width="815"
             HorizontalAlignment="Center"
@@ -31,6 +32,7 @@
             VerticalContentAlignment="Center"
             Margin="0,-5,0,0"/>
 
+        <!-- Title Section -->
         <Label
             Content="SysMaven Activity Monitor"
             Height="52"
@@ -45,6 +47,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
 
+        <!-- System Section -->
         <Rectangle
             Height="90"
             Width="782"
@@ -56,7 +59,7 @@
         <Label
             Content="System Informations :"
             Height="45"
-            Width="268"
+            Width="270"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             HorizontalContentAlignment="Left"
@@ -67,6 +70,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
+            x:Name="os"
             Content="Operating System :"
             Height="30"
             Width="379"
@@ -79,6 +83,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
+            x:Name="architecture"
             Content="Architecture :"
             Height="28"
             Width="379"
@@ -91,6 +96,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
+            x:Name="cpu"
             Content="CPU :"
             Height="30"
             Width="390"
@@ -103,6 +109,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
+            x:Name="gpu"
             Content="GPU :"
             Height="28"
             Width="390"
@@ -115,6 +122,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
 
+        <!-- CPU Section-->
         <Rectangle
             Height="295"
             Width="250"
@@ -152,24 +160,26 @@
             VerticalContentAlignment="Center"
             Margin="16,368,551,138"
             FontWeight="Bold"
-            FontSize="32"
+            FontSize="30"
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FFCFD8DD" Padding="0,0,0,0"/>
         <Label
-            x:Name="cpu"
+            x:Name="cpuUsage"
             Content="0,00%"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             FontWeight="Bold"
             FontSize="30"
             Foreground="#FF37474F"
-            Margin="10,448,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Padding="0,0,0,0" Height="45" Width="248"/>
+            Margin="9,438,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            ScrollViewer.CanContentScroll="True"
+            Padding="0,0,0,0"
+            Height="52"
+            Width="250" RenderTransformOrigin="0.522,0.155"/>
 
-
-
-
-
-
+        <!-- RAM / Temp Section-->
         <Rectangle
             Height="295"
             Width="250"
@@ -178,6 +188,109 @@
             Stroke="#FFCFD8DD"
             Margin="0,198,0,0"
             Fill="Transparent"/>
+        <Label
+            Content="RAM"
+            Height="52"
+            Width="248"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="0,193,0,0"
+            FontWeight="Bold"
+            FontSize="30"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            Content="Memory usage :"
+            Height="30"
+            Width="238"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="295,231,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <ProgressBar
+            x:Name="progressBar"
+            HorizontalAlignment="Center"
+            Height="20" Margin="0,261,0,0"
+            VerticalAlignment="Top"
+            Width="216"
+            Background="#FFCFD8DD"
+            BorderBrush="#FF78909C"
+            Foreground="#FF37474F"
+            Value="20"/>
+        <Label
+            x:Name="ramTotal"
+            Content="Total : 15,90 GB"
+            Height="30"
+            Width="238"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="295,288,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            x:Name="ramUsed"
+            Content="Used : 10,00 GB"
+            Height="30"
+            Width="238"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="295,320,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            x:Name="ramFree"
+            Content="Free: 5,90 GB"
+            Height="30"
+            Width="238"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="295,353,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            Content="Temperature"
+            Height="52"
+            Width="248"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="0,387,0,0"
+            FontWeight="Bold"
+            FontSize="30"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            x:Name="temp"
+            Content="85°C"
+            Height="62"
+            Width="250"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Margin="0,429,0,0"
+            FontWeight="Bold"
+            FontSize="40"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+
+        <!-- HDD / Network Section-->
         <Rectangle
             Height="295"
             Width="250"
@@ -186,7 +299,6 @@
             Stroke="#FFCFD8DD"
             Margin="540,198,0,0"
             Fill="Transparent"/>
-
 
     </Grid>
 </Window>
