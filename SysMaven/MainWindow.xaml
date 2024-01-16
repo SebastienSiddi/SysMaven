@@ -123,6 +123,53 @@
             Stroke="#FFCFD8DD"
             Margin="9,198,0,0"
             Fill="Transparent"/>
+        <Image
+            Height="235"
+            Width="236"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="16,206,0,0"
+            Source="/Compteur.png"/>
+        <Image 
+            x:Name="needle"
+            HorizontalAlignment="Left"
+            Height="70" Margin="82,272,0,0"
+            VerticalAlignment="Top"
+            Width="70" Source="Aiguille.png"
+            RenderTransformOrigin="0.738,0.733">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label
+            Content="CPU"           
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Margin="16,368,551,138"
+            FontWeight="Bold"
+            FontSize="32"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FFCFD8DD" Padding="0,0,0,0"/>
+        <Label
+            x:Name="cpu"
+            Content="0,00%"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontWeight="Bold"
+            FontSize="30"
+            Foreground="#FF37474F"
+            Margin="10,448,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Padding="0,0,0,0" Height="45" Width="248"/>
+
+
+
+
+
+
         <Rectangle
             Height="295"
             Width="250"
@@ -139,6 +186,7 @@
             Stroke="#FFCFD8DD"
             Margin="540,198,0,0"
             Fill="Transparent"/>
+
 
     </Grid>
 </Window>
