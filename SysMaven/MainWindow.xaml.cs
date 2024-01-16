@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,14 @@ namespace SysMaven
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void InfoMsg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new ProcessStartInfo("https://sebastiensiddi.com")
+            {
+                UseShellExecute = true
+            });
         }
     }
 }

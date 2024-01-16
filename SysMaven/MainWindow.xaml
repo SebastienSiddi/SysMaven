@@ -5,8 +5,140 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SysMaven"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="SysMaven" Height="580" Width="815" ResizeMode="NoResize" Icon="/Compteur.png" WindowStartupLocation="CenterScreen">
+
+    <Grid Background="#7FCFD8DD">
+
+        <Rectangle
+            Fill="#FFE74C3C"
+            Height="32"
+            Width="815"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="#FFCFD8DD" />
+        <Label
+            x:Name="infoMsg"
+            MouseDown="InfoMsg_MouseDown"
+            Content="Info : Mise à jour de sécurité disponible !"
+            Height="37"
+            Width="815"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontWeight="Bold"
+            FontSize="20"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Margin="0,-5,0,0"/>
+
+        <Label
+            Content="SysMaven Activity Monitor"
+            Height="52"
+            Width="805"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Margin="0,37,0,0"
+            FontWeight="Bold"
+            FontSize="32"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+
+        <Rectangle
+            Height="90"
+            Width="782"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="#FFCFD8DD"
+            Margin="0,94,0,0"
+            Fill="Transparent"/>
+        <Label
+            Content="System Informations :"
+            Height="45"
+            Width="268"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="16,89,0,0"
+            FontWeight="Bold"
+            FontSize="25"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            Content="Operating System :"
+            Height="30"
+            Width="379"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="29,127,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            Content="Architecture :"
+            Height="28"
+            Width="379"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="29,151,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            Content="CPU :"
+            Height="30"
+            Width="390"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="408,127,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            Content="GPU :"
+            Height="28"
+            Width="390"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="408,151,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+
+        <Rectangle
+            Height="295"
+            Width="250"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Stroke="#FFCFD8DD"
+            Margin="9,198,0,0"
+            Fill="Transparent"/>
+        <Rectangle
+            Height="295"
+            Width="250"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="#FFCFD8DD"
+            Margin="0,198,0,0"
+            Fill="Transparent"/>
+        <Rectangle
+            Height="295"
+            Width="250"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Stroke="#FFCFD8DD"
+            Margin="540,198,0,0"
+            Fill="Transparent"/>
 
     </Grid>
 </Window>

@@ -8,4 +8,28 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Compteur.png" />
+    <None Remove="Ressources\Aiguille.png" />
+    <None Remove="Ressources\arrow.png" />
+    <None Remove="Ressources\Compteur.png" />
+    <None Remove="Ressources\palette.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Compteur.png" />
+    <Resource Include="Ressources\Aiguille.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\Compteur.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Ressources\palette.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
