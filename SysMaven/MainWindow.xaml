@@ -70,8 +70,8 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
-            x:Name="os"
-            Content="Operating System :"
+            x:Name="OSName"
+            Content="Operating System : "
             Height="30"
             Width="379"
             HorizontalAlignment="Left"
@@ -83,9 +83,9 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
-            x:Name="architecture"
-            Content="Architecture :"
-            Height="28"
+            x:Name="OSArchitecture"
+            Content="Architecture : "
+            Height="33"
             Width="379"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -96,8 +96,8 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
-            x:Name="cpu"
-            Content="CPU :"
+            x:Name="CPUName"
+            Content="CPU : "
             Height="30"
             Width="390"
             HorizontalAlignment="Left"
@@ -109,9 +109,9 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <Label
-            x:Name="gpu"
-            Content="GPU :"
-            Height="28"
+            x:Name="GPUName"
+            Content="GPU : "
+            Height="33"
             Width="390"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
