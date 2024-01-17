@@ -14,7 +14,7 @@
             Fill="#FFE74C3C"
             Height="32"
             Width="815"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Stroke="#FFCFD8DD" />
         <Label
@@ -41,7 +41,7 @@
             VerticalAlignment="Top"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Margin="0,37,0,0"
+            Margin="0,33,0,0"
             FontWeight="Bold"
             FontSize="32"
             RenderTransformOrigin="0.501,0.01"
@@ -50,7 +50,7 @@
         <!-- System Section -->
         <Rectangle
             Height="90"
-            Width="782"
+            Width="783"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Stroke="#FFCFD8DD"
@@ -129,7 +129,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Stroke="#FFCFD8DD"
-            Margin="9,198,0,0"
+            Margin="8,198,0,0"
             Fill="Transparent"/>
         <Image
             Height="235"
@@ -251,7 +251,7 @@
             Foreground="#FF37474F"/>
         <Label
             x:Name="ramFree"
-            Content="Free: 5,90 GB"
+            Content="Free : 5,90 GB"
             Height="30"
             Width="238"
             HorizontalAlignment="Left"
@@ -294,11 +294,127 @@
         <Rectangle
             Height="295"
             Width="250"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Stroke="#FFCFD8DD"
-            Margin="540,198,0,0"
+            Margin="0,198,9,0"
             Fill="Transparent"/>
+        <Label
+            x:Name="diskList"
+            Content="Disks"
+            Height="52"
+            Width="248"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="542,193,0,0"
+            FontWeight="Bold"
+            FontSize="30"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <ListBox
+            Name="listeDisques"
+            HorizontalAlignment="Right"
+            Height="81"
+            Margin="0,246,18,0"
+            VerticalAlignment="Top"
+            Width="232"/>
+        <Label
+            x:Name="network"
+            Content="Network"
+            Height="52"
+            Width="248"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="542,336,0,0"
+            FontWeight="Bold"
+            FontSize="30"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label            
+            Content="Network Data Usage :"
+            Height="30"
+            Width="238"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            Margin="556,376,0,0"           
+            FontSize="15"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            x:Name="netUp"
+            Content="0"
+            Height="40"
+            Width="172"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Right"
+            VerticalContentAlignment="Center"
+            Margin="572,408,0,0"           
+            FontSize="24"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Label
+            x:Name="netDown"
+            Content="0"
+            Height="37"
+            Width="172"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Right"
+            VerticalContentAlignment="Center"
+            Margin="572,442,0,0"           
+            FontSize="24"
+            RenderTransformOrigin="0.501,0.01"
+            Foreground="#FF37474F"/>
+        <Image
+            HorizontalAlignment="Left"
+            Height="30" Margin="754,414,0,0"
+            VerticalAlignment="Top"
+            Width="30"
+            Source="/arrow.png"
+            RenderTransformOrigin="0.633,1.535"/>
+        <Image 
+            HorizontalAlignment="Left" 
+            Height="30" Margin="746,391,0,0" 
+            VerticalAlignment="Top" 
+            Width="30" 
+            Source="/arrow.png" 
+            RenderTransformOrigin="0.633,1.535">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <!-- Footer Section -->
+        <Rectangle
+            Fill="#FF37474F"
+            Height="62"
+            Width="832"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Stroke="#FFCFD8DD" Margin="0,509,0,0" />
+        <Label                       
+            Content="Copyright @ Sébastien Siddi"
+            Height="36"
+            Width="815"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="14"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Margin="0,507,0,0"/>
 
     </Grid>
 </Window>

@@ -9,17 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arrow.png" />
     <None Remove="Compteur.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Compteur.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Aiguille.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="arrow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="palette.png">
