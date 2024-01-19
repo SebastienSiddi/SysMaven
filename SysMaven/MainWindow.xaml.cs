@@ -1,17 +1,11 @@
 ﻿using Microsoft.Win32;
 using System.Diagnostics;
+using System.IO;
 using System.Management;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace SysMaven
@@ -26,6 +20,8 @@ namespace SysMaven
             InitializeComponent();
 
             GetAllSystemInfos();
+
+            GetDrivesInfos();
 
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(0.75);
@@ -75,19 +71,7 @@ namespace SysMaven
             {
                 temp.Foreground = Brushes.Green;
             }
-        }
-
-        public void RefreshRamInfos()
-        {
-            ramTotal.Content = $"Total : {FormatSize(GetTotalMemory())}";
-            ramUsed.Content = $"Used : {FormatSize(GetUsedMemory())}";
-            ramFree.Content = $"Free : {FormatSize(GetAvailMemory())}";
-
-            string[] maxValue = FormatSize(GetTotalMemory()).Split(' ');
-            progressBar.Maximum = float.Parse(maxValue[0]);
-            string[] memValue = FormatSize(GetUsedMemory()).Split(' ');
-            progressBar.Value = float.Parse(memValue[0]);
-        }
+        }        
         #endregion
 
         #region Public methods
@@ -98,6 +82,34 @@ namespace SysMaven
             OSArchitecture.Content += systemInfo.GetOSInfos("architecture");
             CPUName.Content += systemInfo.GetCPUInfos();
             GPUName.Content += systemInfo.GetGPUInfos();
+        }
+
+        public void GetDrivesInfos()
+        {
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            List<Disk> disks = [];
+            foreach (DriveInfo drive in allDrives)
+            {
+                if (drive.IsReady)
+                {
+                    Disk disk = new(drive.Name, drive.DriveFormat, FormatBytes(drive.TotalSize), FormatBytes(drive.TotalFreeSpace));
+                    disks.Add(disk);
+                }
+            }
+            listDisks.ItemsSource = disks;
+        }
+
+        private static string FormatBytes(long bytes)
+        {
+            string[] suffixes = ["B", "KB", "MB", "GB", "TB", "PB"];
+            int counter = 0;
+            decimal number = (decimal)bytes;
+            while (Math.Round(number / 1024) >= 1)
+            {
+                number /= 1024;
+                counter++;
+            }
+            return string.Format("{0:n2} {1}", number, suffixes[counter]);
         }
 
         public string RefreshCpuUsage()
@@ -118,6 +130,18 @@ namespace SysMaven
             roundVal = Math.Round(roundVal, 2);
 
             return roundVal + " %";
+        }
+
+        public void RefreshRamInfos()
+        {
+            ramTotal.Content = $"Total : {FormatSize(GetTotalMemory())}";
+            ramUsed.Content = $"Used : {FormatSize(GetUsedMemory())}";
+            ramFree.Content = $"Free : {FormatSize(GetAvailMemory())}";
+
+            string[] maxValue = FormatSize(GetTotalMemory()).Split(' ');
+            progressBar.Maximum = float.Parse(maxValue[0]);
+            string[] memValue = FormatSize(GetUsedMemory()).Split(' ');
+            progressBar.Value = float.Parse(memValue[0]);
         }
 
         #region RAM Fonctions
@@ -240,6 +264,33 @@ namespace SysMaven
                 }
             }
             return "N/A";
+        }
+        #endregion
+    }
+
+    public class Disk
+    {
+        #region fields
+        private string name;
+        private string format;
+        private string size;
+        private string freeSpace;
+        #endregion
+
+        #region Constructor
+        public Disk(string name, string format, string size, string freeSpace)
+        {
+            this.name = name;
+            this.format = format;
+            this.size = size;
+            this.freeSpace = freeSpace;
+        }
+        #endregion
+
+        #region Public methods
+        public override string ToString()
+        {
+            return $"{name} ({format}) {freeSpace} free / {size}";
         }
         #endregion
     }

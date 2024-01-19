@@ -314,7 +314,7 @@
             RenderTransformOrigin="0.501,0.01"
             Foreground="#FF37474F"/>
         <ListBox
-            Name="listeDisques"
+            Name="listDisks"
             HorizontalAlignment="Right"
             Height="81"
             Margin="0,246,18,0"
