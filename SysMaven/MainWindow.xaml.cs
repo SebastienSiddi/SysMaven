@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Management;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
@@ -41,37 +42,11 @@ namespace SysMaven
         private void Timer_Tick(object sender, System.EventArgs e)
         {
             cpuUsage.Content = RefreshCpuUsage();
-            RefreshRamInfos();
-            RefreshTempInfos();
+            RefreshRamInfos();            
+            RefreshTempInfos();  
+            RefreshNetworkInfos();
         }
 
-        private void RefreshTempInfos()
-        {
-            Double temperature = 0;
-            string instanceName = "";
-
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
-            foreach (ManagementObject obj in searcher.Get())
-            {
-                temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
-                temperature = (temperature - 2732) / 10.0;
-                instanceName = obj["InstanceName"].ToString();
-            }
-            temp.Content = $"{temperature} °C";  
-            
-            if (temperature > 80)
-            {
-                temp.Foreground = Brushes.Red;
-            }
-            else if (temperature > 60)
-            {
-                temp.Foreground = Brushes.Orange;
-            }
-            else
-            {
-                temp.Foreground = Brushes.Green;
-            }
-        }        
         #endregion
 
         #region Public methods
@@ -99,7 +74,7 @@ namespace SysMaven
             listDisks.ItemsSource = disks;
         }
 
-        private static string FormatBytes(long bytes)
+        static string FormatBytes(long bytes)
         {
             string[] suffixes = ["B", "KB", "MB", "GB", "TB", "PB"];
             int counter = 0;
@@ -144,6 +119,60 @@ namespace SysMaven
             progressBar.Value = float.Parse(memValue[0]);
         }
 
+        public void RefreshTempInfos()
+        {
+            Double temperature = 0;
+            string instanceName = "";
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
+            foreach (ManagementObject obj in searcher.Get())
+            {
+                temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
+                temperature = (temperature - 2732) / 10.0;
+                instanceName = obj["InstanceName"].ToString();
+            }
+            temp.Content = $"{temperature} °C";  
+            
+            if (temperature > 80)
+            {
+                temp.Foreground = Brushes.Red;
+            }
+            else if (temperature > 60)
+            {
+                temp.Foreground = Brushes.Orange;
+            }
+            else
+            {
+                temp.Foreground = Brushes.Green;
+            }
+        }        
+
+        public void RefreshNetworkInfos()
+        {
+            if(!NetworkInterface.GetIsNetworkAvailable())
+            {
+                network.Content = "No network";
+                return;
+            }
+
+            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+            foreach (NetworkInterface networkInterface in interfaces)
+            {
+                if (networkInterface.OperationalStatus == OperationalStatus.Up)
+                {
+                    if (networkInterface.GetIPv4Statistics().BytesSent > 0)
+                    { 
+                        netUp.Content = networkInterface.GetIPv4Statistics().BytesSent / 1000 + "KB";                    
+                    }
+                    if (networkInterface.GetIPv4Statistics().BytesReceived > 0)
+                    {
+                        netDown.Content = networkInterface.GetIPv4Statistics().BytesReceived / 1000 + "KB";
+                    }
+                }
+            }
+        }        
+           
         #region RAM Fonctions
         [DllImport("kernel32.dll")]
         [return: MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
@@ -164,7 +193,7 @@ namespace SysMaven
             public ulong ullAvailExtendedVirtual;
         }
 
-       static string FormatSize(double size)
+        static string FormatSize(double size)
         {
             double d = (double)size;
             int i = 0;
